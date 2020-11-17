@@ -1,15 +1,6 @@
 
 var turn = document.getElementById("turn"),
     boxes = document.querySelectorAll("#main div"), X_or_O = 0;
-
-var main_div = document.getElementsById("main1");
-
-var guide_div = document.getElementById("guide-div");
-
-
-
-function player(){main_div.style.visibility = "visible";}
-
 function selectwinnerBoxes(b1, b2, b3){
     b1 .classList.add("win");
     b2 .classList.add("win");
@@ -82,3 +73,17 @@ function replay(){
     }
 
 }
+var div1 = document.getElementById("div1");
+var btng = document.getElementById("btng");
+var main_div = document.getElementById("main");
+var X = document.getElementById("x-btn");
+
+function play(){
+main_div.style.visibility = "visible";
+}
+function player(){
+    div1.style.visibility = "visible";
+    main_div.style.visibility = "hidden";
+    btng.style.visibility = "hidden";
+}
+

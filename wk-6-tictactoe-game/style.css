@@ -1,4 +1,6 @@
-
+#div1{
+    visibility: hidden;
+}
 *{box-sizing: border-box;
 }
 .game{
@@ -40,9 +42,6 @@
     margin: 5% 20% 20% 20%;
     color: #fff;
     padding: 10px 5px 60px 5px;
-}
-#main1{
-   visibility: hidden;
 }
 .btn{
     width: 60px;
