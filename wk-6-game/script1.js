@@ -6,7 +6,7 @@ function selectwinnerBoxes(b1, b2, b3){
     b2 .classList.add("win");
     b3 .classList.add("win");
     turn.innerHTML = b1.innerHTML + "Won Congrat";
-    turn.style.fontSize = "40px";
+    turn.style.fontSize = "20px";
 } 
 function getWinner(){
     var box1 = document.getElementById("box1"),
@@ -18,13 +18,13 @@ function getWinner(){
         box7 = document.getElementById("box7"),
         box8 = document.getElementById("box8"),
         box9 = document.getElementById("box9");
-
+    // get all posibilities
     if(box1.innerHTML !== "" && box1.innerHTML === box2.innerHTML && box1.innerHTML === box3.innerHTML)
         selectwinnerBoxes(box1, box2, box3);
-
+        
     else if(box4.innerHTML !== "" && box4.innerHTML === box5.innerHTML && box4.innerHTML === box6.innerHTML)
         selectwinnerBoxes(box4, box5, box6);
-
+    
     else if(box7.innerHTML !== "" && box7.innerHTML === box8.innerHTML && box7.innerHTML === box9.innerHTML)
         selectwinnerBoxes(box7, box8, box9);
 
@@ -43,7 +43,11 @@ function getWinner(){
     else if(box3.innerHTML !== "" && box3.innerHTML === box5.innerHTML && box3.innerHTML === box7.innerHTML)
         selectwinnerBoxes(box3, box5, box7);
 }
+    // set event onclick
+    // boxes => all boxes
+    // X_or_O => to set X or O into the boxes
 for(var i =0; i < boxes.length; i++){
+    // not allow to change the value of the box
     boxes[i].onclick = function(){
         if(this.innerHTML !== "X" && this.innerHTML !== "O"){
         if(X_or_O%2 === 0){
@@ -64,26 +68,27 @@ for(var i =0; i < boxes.length; i++){
         }
     };
 }
-function replay(){
-    for(var i = 0;i < boxes.length; i++){
-        boxes[i].classList.remove("win");
-        boxes.innerHTML = "";
-        turn.innerHTML = "Play";
-        turn.style.fontSize = "25px";
-    }
-
-}
-var div1 = document.getElementById("div1");
-var btng = document.getElementById("btng");
-var main_div = document.getElementById("main");
-var X = document.getElementById("x-btn");
+ // set event onclick for display
+    var div1 = document.getElementById("div1");
+    var btng = document.getElementById("btng");
+    var main_div = document.getElementById("main");
+    var X = document.getElementById("x-btn");
+    var back_btn = document.getElementById("back")
 
 function play(){
 main_div.style.visibility = "visible";
+back_btn.style.visibility = "visible";
+div1.style.visibility = "hidden";
+}
+function back(){
+    btng.style.visibility = "visible";
+    main_div.style.visibility = "hidden";
+    div1.style.visibility = "hidden";
+    back_btn.style.visibility = "hidden";
+    
 }
 function player(){
     div1.style.visibility = "visible";
     main_div.style.visibility = "hidden";
     btng.style.visibility = "hidden";
 }
-

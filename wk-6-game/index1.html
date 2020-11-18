@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="style1.css">
 </head>
 <body>
-    <div style="background: yellow; padding: 10px 0px 20px 0px;">
-        <button type="button" style="float: right;" onclick="window.location.reload()">Restart All</button>
+    <div class="container">
+        <button type="button" style="float: right; margin-right: 15%; background: crimson;" onclick="window.location.reload()">Restart All</button>
         
         <div class="firstDiv" >
-            How do you want to play?
+            <strong style="margin-top: 5%;"> How do you want to play?</strong>
             <div id="div1">
                 <div id="inner">
                     <div class="game" id="main">
@@ -27,7 +27,7 @@
                         <div class="box" id="box9"></div>
                     </div>
                  <button class="btn" id="x-btn" type="button" onclick="play()">X</button>&NonBreakingSpace; &NonBreakingSpace; <button class="btn" type="button">O</button><br>
-                 <button class="btn" type="button">Back</button>
+                 <button class="btn" id="back" type="button" onclick="back()">Back</button>
                 </div>
             </div>
             <div id="btng">

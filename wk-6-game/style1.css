@@ -1,7 +1,14 @@
+
+*{box-sizing: border-box;
+}
+
+body {
+    display: block;
+    margin: 8px;
+}
+
 #div1{
     visibility: hidden;
-}
-*{box-sizing: border-box;
 }
 .game{
     width: 300px;
@@ -13,7 +20,7 @@
     display: block;
     font-size: 25px;
     text-align: center;
-    color: hotpink;
+    color: #fff;
     background: #446CB3;
 }
 .game .box{
@@ -34,14 +41,19 @@
     color: white;
 }
 .win{
-    background: #F9690E; color: #fff;
+    background: #F9690E !important; color: rgb(25, 80, 180) !important;
 }
-.firstDiv{
+
+.firstDiv {
+    display: block;
     background: darkgreen;
     text-align: center;
     margin: 5% 20% 20% 20%;
     color: #fff;
-    padding: 10px 5px 60px 5px;
+    padding: 10px 0px 0px 0px;
+}
+#back{
+    visibility: hidden;
 }
 .btn{
     width: 60px;
@@ -63,4 +75,82 @@
     cursor: pointer;
     font-weight: bold;
     color: white;
+}
+.container{
+    background: yellow;
+    margin:5% 20% 20% 20%;
+    padding: 10px 0px 20px 0px;
+}
+@media (max-width:360px){
+    html {
+        display: block;
+        -webkit-locale: "en";
+    }
+    .game {
+        width: 280px;
+        overflow: hidden;
+        margin: 5% 0% 5% 5%;
+    }
+    .game span {
+        width: 85%;
+        font-family: sans-serif;
+        display: block;
+        font-size: 25px;
+        text-align: center;
+        color: #fff;
+        background: #446CB3;
+    }
+    .game .box {
+        float: left;
+        height: 70px;
+        line-height: 100px;
+        background: green;
+        cursor: pointer;
+        border: 1px solid #fff;
+        width: 80px;
+        transition: all .25s ease-in-out;
+        font-family: sans-serif;
+        font-size: 25px;
+        text-align: center;
+    }
+    .firstDiv {
+        width: 280px;
+        height: auto;
+        display: block;
+        background: darkgreen;
+        text-align: center;
+        margin: 10%;
+        color: #fff;
+        padding: 10px 0px 0px 0px;
+    }
+    div {
+        display: block;
+    }
+    button {    appearance: auto;
+        text-rendering: auto;
+        color: -internal-light-dark(black, white);
+        letter-spacing: normal;
+        word-spacing: normal;
+        text-transform: none;
+        text-indent: 0px;
+        text-shadow: none;
+        display: inline-block;
+        text-align: center;
+        align-items: flex-start;
+        cursor: default;
+        background-color: -internal-light-dark(rgb(239, 239, 239), rgb(59, 59, 59));
+        box-sizing: border-box;
+        margin: 0em;
+        font: 400 13.3333px Arial;
+        padding: 1px 6px;
+        border-width: 2px;
+        border-style: outset;
+        border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+        border-image: initial
+    }
+    .container {
+        background: yellow;
+         margin: 0%;
+        padding: 10px 0px 20px 0px;
+    }
 }
