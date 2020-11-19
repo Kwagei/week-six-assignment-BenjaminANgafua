@@ -76,6 +76,11 @@ body {
     font-weight: bold;
     color: white;
 }
+#replay{
+    background: #F9690E;
+    color: black;
+    visibility: hidden;
+}
 .container{
     background: yellow;
     margin:5% 20% 20% 20%;
@@ -123,6 +128,7 @@ body {
         color: #fff;
         padding: 10px 0px 0px 0px;
     }
+
     div {
         display: block;
     }
