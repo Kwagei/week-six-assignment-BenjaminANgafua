@@ -3,12 +3,13 @@ var turn = document.getElementById("turn"),
 // boxes => all boxes
 // X or O => to set X or O into the boxes 
     boxes = document.querySelectorAll("#main div"), X_or_O = 0;
+var randomNum = Math.floor(Math.random()*9)+1;
 
 function selectwinnerBoxes(b1, b2, b3){
     b1 .classList.add("win");
     b2 .classList.add("win");
     b3 .classList.add("win");
-    turn.innerHTML = b1.innerHTML + " Won Congratulation";
+    turn.innerHTML = b1.innerHTML += " Won Congratulation";
     turn.style.fontSize = "20px";
 } 
 function getWinner(){
@@ -70,21 +71,20 @@ for(var i =0; i < boxes.length; i++){
         }
     };
 }
-function replay(){
-    for(var i = 0; i < boxes.length; i++){
-        boxes[i].classList.remove("win");
-        boxes[i].innerHTML = "";
-        turn.innerHTML = "Play";
-        turn.style.fontSize = "16px";
-    }
-}
  // set event onclick for display
     var div1 = document.getElementById("div1");
     var btng = document.getElementById("btng");
     var main_div = document.getElementById("main");
     var X = document.getElementById("x-btn");
     var back_btn = document.getElementById("back");
-    var replay_1 = document.getElementById("replay")
+    var caution_div = document.getElementById("caution-div");
+
+function instruction(){
+    caution_div.style.display = "block";
+}
+function hide(){
+    caution_div.style.display = "none";
+}
 
 function play(){
 main_div.style.visibility = "visible";
@@ -94,7 +94,6 @@ div1.style.visibility = "hidden";
 function back(){
     btng.style.visibility = "visible";
     main_div.style.visibility = "hidden";
-    replay_1.style.visibility = "visible";
     div1.style.visibility = "hidden";
     back_btn.style.visibility = "hidden";
     

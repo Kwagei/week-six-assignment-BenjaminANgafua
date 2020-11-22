@@ -1,0 +1,48 @@
+.container{
+    width: 320px;
+    margin: auto;
+    margin-top: 60px;
+    margin-bottom: 40px;
+    background-color: green;
+}
+h1{
+    text-align: center;
+    font-size: 50px;
+}
+.border-b{
+   border: 2px solid white;
+}
+.row{
+    height: 100px;
+}
+.col:hover{
+    background-color: yellow;
+}
+.col{
+    height: 100px;
+    width:  100px;
+    float: left;
+    font-size: 100px;
+    text-align: center;
+    line-height: 100px;
+}
+#back{
+    background: black;
+    border-radius: 3%;
+    border: groove white;
+    color: white;
+    margin: 4px 40px 5px 130px;
+    text-align: center;
+}
+.border-r{
+   border-right: 5px solid white;
+}
+.winner{
+    color:blue;
+    background-color: darkorange;
+}
+.background{
+    background: yellow;
+    margin:  0% 20%;
+    padding: 5px 0px 10px 0px;
+}

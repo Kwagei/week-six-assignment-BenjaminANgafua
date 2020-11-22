@@ -8,14 +8,31 @@
     <link rel="icon" href="Solomont.jpeg" style="border-radius: 50%;">
 </head>
 <body>
-    <div class="container">
+    <div class="container" style="text-align: center;">
+     <button type="button" style="float: right; color: white; margin:5% 5% 5% 0%; background: black;" onclick="window.location.reload()">Restart All</button>
         
-        <button type="button" style="float: right; margin-right: 15%; background: crimson;" onclick="window.location.reload()">Restart All</button>
+        <h1>Welcome to this Tic-tac-toe Game! </h1>
+        <button type="button" id="instruction-btn" style="font-family: sans-serif; font-size: x-large; background: #000; border: groove wheat; color:white" onclick="instruction()">Instruction:</button>
+        <div id="caution-div" style="text-align: left; font-size: large; border: solid black; margin: 5% 12% 5% 12%;">
+            <ol>
+                <strong>Instruction:</strong> <br> <br>
+                <li>Click either "X" or "O" as your favorite player to start the match.</li>
+                <li>You are to paly in the empty spaces provided in the 3 square boxes.</li>
+                <li>You are to fill in a row or a columns or either of the two diagonals with your player in sequence <br>
+                to declare you as winner.</li>
+                <li>If won, you may restart the game by clicking at the button at the top right corner.</li>
+                <button type="button" style="font-size: x-large; background: #000; border: groove wheat; color:white; margin-left: 5%;" onclick="hide()">Hide</button>
+            </ol>
+            </div>
+
         
         <div class="firstDiv" >
-            <strong style="margin-top: 5%;"> How do you want to play?</strong>
+            <strong style="margin-top: 5%;">
+                How do you want to play?
+            </strong>
             <div id="div1">
                 <div id="inner">
+                    
                     <div class="game" id="main">
                         <span id="turn">Play</span>
                         <!-- show X or O on div click -->
@@ -31,12 +48,10 @@
                     </div>
                  <button class="btn" id="x-btn" type="button" onclick="play()">X</button>&NonBreakingSpace; &NonBreakingSpace; <button class="btn" type="button">O</button><br>
                  <button class="btn" id="back" type="button" onclick="back()">Back</button>
-                 <!-- Play again and reset all info -->
-                 <button type="button" id="replay" onclick="replay()">Replay</button>
                 </div>
             </div>
             <div id="btng">
-                <button type="button" id="player1" class="btn1" onclick="player()">TWO PLAYER</button>&NonBreakingSpace; &NonBreakingSpace; <button class="btn1" type="button" id="player2" onclick="player2()">PLAY WITH COMPUTER</button><br>
+            <button class="btn1" type="button" id="player2" onclick="player2()"> <a href="./play-with-computer/index.html"  style="color: white; text-decoration: none;">PLAY WITH COMPUTER</a></button>    &NonBreakingSpace; &NonBreakingSpace; <button type="button" id="player1" class="btn1" onclick="player()">TWO PLAYER</button> <br>
             </div> 
         </div>
     </div>
