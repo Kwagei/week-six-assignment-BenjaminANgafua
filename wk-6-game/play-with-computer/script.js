@@ -25,7 +25,7 @@ function takeTurn(){
         computerPlayer.takeTurn();
 
     }
-// which player turn is
+// nexting player turn is
     turn++;
 }
 }
@@ -59,7 +59,6 @@ this.positions =  Array.from(document.querySelectorAll('.col')); /*To get all th
                 winner = true;
                 winnerCombo.forEach((index) => {
                     positions[index].className += ' winner';
-                    alert("Congratulation")
                 })
             } 
         });

@@ -10,7 +10,7 @@ function selectwinnerBoxes(b1, b2, b3){
     b2 .classList.add("win");
     b3 .classList.add("win");
     turn.innerHTML = b1.innerHTML += " Won Congratulation";
-    turn.style.fontSize = "20px";
+    turn.style.fontSize = "16px";
 } 
 function getWinner(){
     var box1 = document.getElementById("box1"),
