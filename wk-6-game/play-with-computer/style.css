@@ -1,7 +1,10 @@
 .container{
     width: 320px;
     margin: auto;
+    display: auto;
     margin-top: 60px;
+    text-align: center;
+    padding: 8px;
     margin-bottom: 40px;
     background-color: green;
 }
@@ -26,14 +29,6 @@ h1{
     text-align: center;
     line-height: 100px;
 }
-#back{
-    background: black;
-    border-radius: 3%;
-    border: groove white;
-    color: white;
-    margin: 4px 40px 5px 130px;
-    text-align: center;
-}
 .border-r{
    border-right: 5px solid white;
 }
@@ -45,4 +40,47 @@ h1{
     background: yellow;
     margin:  0% 20%;
     padding: 5px 0px 10px 0px;
+}
+.btn{
+    width: 60px;
+    font-size: 16px;
+    height: 40px;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+}
+#inner{
+    visibility: hidden;
+}
+#play1{
+    margin: 12% 12% 20% 12%;
+    width: 40%; 
+    text-align: center;
+    display: block;
+}
+
+#thegame{
+    display: none;
+}
+button{
+    width: 60px;
+    font-size: 16px;
+    height: 40px;
+    border-radius: 3%;
+    background:black;
+    border: groove white;
+    color: white;
+    text-align: center;
+}
+#x-btn{
+    display: auto;
+}
+#reload{float: right;
+    width: 30%;
+    color:white;
+    font-size: 14px;
+    height: 30px;
+    margin: 5%;
+    background: crimson;
 }

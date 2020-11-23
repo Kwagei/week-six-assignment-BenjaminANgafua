@@ -47,7 +47,7 @@ this.positions =  Array.from(document.querySelectorAll('.col')); /*To get all th
 
         const positions = this.positions;
 
-        winningCombinations.forEach((winnerCombo) =>{
+        winningCombinations.forEach((winnerCombo) => {
             const pos0Innertext = positions[winnerCombo[0]].innerText;
             const pos1Innertext = positions[winnerCombo[1]].innerText;
             const pos2Innertext = positions[winnerCombo[2]].innerText;
@@ -64,6 +64,7 @@ this.positions =  Array.from(document.querySelectorAll('.col')); /*To get all th
         });
     return winner;
     }
+    
 }
 function HumanPlayer(board){
 this.takeTurn = function (){
@@ -72,7 +73,7 @@ this.takeTurn = function (){
 function handleTurnTaken(event){
     event.target.innerText = 'x';
     board.positions
-    .forEach(el => el.removeEventListener('click', handleTurnTaken))
+    .forEach(el => el.removeEventListener('click', handleTurnTaken));
 }
 }
 function ComputerPlayer(board){
@@ -82,4 +83,18 @@ function ComputerPlayer(board){
         const move = Math.floor(Math.random()*availablePositions.length);
         availablePositions[move].innerText = 'O';
     }
+}
+var the_game = document.getElementById("thegame");
+var inner_div = document.getElementById("inner");
+var play_btn = document.getElementById("play1")
+var get_player = document.getElementById("x-btn")
+
+function start(){
+the_game.style.display = "block";
+inner_div.style.visibility = "hidden";
+play_btn.style.display = "none";
+}
+function getPlayer(){
+    inner_div.style.visibility = "visible";
+    get_player.style.display = "none";
 }

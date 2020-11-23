@@ -8,26 +8,33 @@
 </head>
 <body>
     <div class="background">
-    <button type="button" style="float: right; color:white; font-size: 14px; height: 30px; margin: 5%; background: crimson;" onclick="window.location.reload()"><b>Restart All</b></button>
+        <button type="button" id="reload" onclick="window.location.reload()"><b>Restart All</b></button>
       <div class="container">
-            <h3 style="text-align: center; color:white;">welcome to the Tic-tac-toe Game</h3>
-            
-            <div class="row border-b">
-                <div class="col border-r"></div>
-                <div class="col border-r"></div>
-                <div class="col border-r"></div>
-            </div>
-            <div class="row border-b">
-                <div class="col border-r"></div>
-                <div class="col border-r"></div>
-                <div class="col border-r"></div>
-            </div>
-            <div class="row border-b">
-                <div class="col border-r"></div>
-                <div class="col border-r"></div>
-                <div class="col border-r"></div>
-            </div>
-            <button id="back" type="button"> <a href="../index1.html" style="text-decoration: none; color:  white;">Back</a> </button>
+                <b style="text-align: center; color:white;">welcome to the Tic-tac-toe Game</b>
+                <button type="button" id="play1" onclick="start()">Play</button>
+            <div id="thegame" style="text-align: center;" >
+                <div id="inner">
+                    <div class="row border-b">
+                        <div class="col border-r"></div>
+                        <div class="col border-r"></div>
+                        <div class="col border-r"></div>
+                    </div>
+                    <div class="row border-b">
+                        <div class="col border-r"></div>
+                        <div class="col border-r"></div>
+                        <div class="col border-r"></div>
+                    </div>
+                    <div class="row border-b">
+                        <div class="col border-r"></div>
+                        <div class="col border-r"></div>
+                        <div class="col border-r"></div>
+                    </div>
+                </div>
+                <div id="x-btn" >
+                    <button class="btn"type="button" style="margin: 4% 0% 4% 25%;" onclick="getPlayer()">X</button>&NonBreakingSpace; &NonBreakingSpace; <button class="btn" type="button" style="margin:4% 10% 4% 0%;" onclick="getPlayer()">O</button> <br>
+                </div>
+                 <button id="back" type="button"> <a href="../index1.html" style="text-decoration: none; text-align: center; padding: 12%; margin: 4% 0% 4% 5%; color:  white;">Back</a> </button>
+                </div>
         </div>
     </div>
 
