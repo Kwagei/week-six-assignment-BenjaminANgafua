@@ -59,19 +59,37 @@ this.positions =  Array.from(document.querySelectorAll('.col')); /*To get all th
                 winner = true;
                 winnerCombo.forEach((index) => {
                     positions[index].className += ' winner';
+                    if(positions[index].innerText === person){
+                        document.getElementById("hum").innerHTML = " <strong> Great you win! </strong>"
+                    }else if(positions[index].innerText === machine){
+                        document.getElementById("com").innerHTML = "<strong> Oh, computer win! </strong>"
+                    }
                 })
-            } 
+            }
         });
     return winner;
     }
-    
+}
+var person;
+    var machine;
+function getPlayer(choose){
+    person = document.getElementById(choose.target.id).innerHTML;
+    if(person === "X"){
+        machine = "O";
+    }else{
+        machine = "X";
+    }
+    inner_div.style.display = "block";
+    get_player.style.display = "none";
+
+    back_btn.style.display = "block";
 }
 function HumanPlayer(board){
 this.takeTurn = function (){
     board.positions.forEach(el => el.addEventListener('click', handleTurnTaken))
 }
 function handleTurnTaken(event){
-    event.target.innerText = 'x';
+    event.target.innerText = person;
     board.positions
     .forEach(el => el.removeEventListener('click', handleTurnTaken));
 }
@@ -81,20 +99,19 @@ function ComputerPlayer(board){
         const  availablePositions = 
         board.positions.filter((p) => p.innerText === '');
         const move = Math.floor(Math.random()*availablePositions.length);
-        availablePositions[move].innerText = 'O';
+        availablePositions[move].innerText = machine;
     }
 }
 var the_game = document.getElementById("thegame");
 var inner_div = document.getElementById("inner");
 var play_btn = document.getElementById("play1")
 var get_player = document.getElementById("x-btn")
+var back_btn = document.getElementById("back")
 
 function start(){
 the_game.style.display = "block";
-inner_div.style.visibility = "hidden";
+    inner_div.style.display = "none";
 play_btn.style.display = "none";
-}
-function getPlayer(){
-    inner_div.style.visibility = "visible";
-    get_player.style.display = "none";
+get_player.style.display = "block";
+back_btn.style.display = "none";
 }

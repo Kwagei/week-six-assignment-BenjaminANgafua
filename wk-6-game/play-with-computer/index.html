@@ -6,14 +6,17 @@
     <title>play-with-computer</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body> 
     <div class="background">
         <button type="button" id="reload" onclick="window.location.reload()"><b>Restart All</b></button>
       <div class="container">
-                <b style="text-align: center; color:white;">welcome to the Tic-tac-toe Game</b>
+                <b style="text-align: center; font-size: larger; color:white;">Welcome to Gaming With Computer </b>
                 <button type="button" id="play1" onclick="start()">Play</button>
             <div id="thegame" style="text-align: center;" >
                 <div id="inner">
+                    <div class="displayer">
+                        <div id="hum">Player1</div> &NonBreakingSpace; &NonBreakingSpace; <div id="com">Computer</div>
+                    </div>
                     <div class="row border-b">
                         <div class="col border-r"></div>
                         <div class="col border-r"></div>
@@ -30,23 +33,19 @@
                         <div class="col border-r"></div>
                     </div>
                 </div>
+                <br> <br>
                 <div id="x-btn" >
-                    <button class="btn"type="button" style="margin: 4% 0% 4% 25%;" onclick="getPlayer()">X</button>&NonBreakingSpace; &NonBreakingSpace; <button class="btn" type="button" style="margin:4% 10% 4% 0%;" onclick="getPlayer()">O</button> <br>
+
+                    <strong>Would you like "X" or "O" ?</Strong> <br> <br>
+                    <button class="btn" id="selectX" type="button" onclick="getPlayer(event)">X</button>
+                    <button class="btn" id="selectO" type="button"  onclick="getPlayer(event)">O</button> <br>
                 </div>
-                 <button id="back" type="button"> <a href="../index1.html" style="text-decoration: none; text-align: center; padding: 12%; margin: 4% 0% 4% 5%; color:  white;">Back</a> </button>
+                 <button id="back" type="button"> 
+                     <a href="../index1.html">Back</a>
+                    </button>
                 </div>
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-
     <script src="script.js"></script>
 </body>
 </html>

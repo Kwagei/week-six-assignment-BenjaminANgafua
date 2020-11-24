@@ -2,24 +2,24 @@
     width: 320px;
     margin: auto;
     display: auto;
-    margin-top: 60px;
+    margin-top: 80px;
     text-align: center;
     padding: 8px;
     margin-bottom: 40px;
-    background-color: green;
+    background-color: rgb(250, 106, 10);
 }
 h1{
     text-align: center;
     font-size: 50px;
 }
 .border-b{
-   border: 2px solid white;
+   border: 2px solid rgb(4, 4, 43);
 }
 .row{
     height: 100px;
 }
 .col:hover{
-    background-color: yellow;
+    background-color: rgb(6, 28, 61);
 }
 .col{
     height: 100px;
@@ -30,17 +30,20 @@ h1{
     line-height: 100px;
 }
 .border-r{
-   border-right: 5px solid white;
+   border-right: 5px solid rgb(4, 4, 43);
 }
 .winner{
-    color:blue;
-    background-color: darkorange;
+    color:rgb(236, 80, 8);
+    background-color: rgb(5, 24, 105);
 }
 .background{
-    background: yellow;
+    background:  #020f27f6;;
     margin:  0% 20%;
     padding: 5px 0px 10px 0px;
 }
+#back{margin-left: 38%;
+    margin-top: 5%;
+    }
 .btn{
     width: 60px;
     font-size: 16px;
@@ -51,12 +54,12 @@ h1{
     color: white;
 }
 #inner{
-    visibility: hidden;
+    display: none;
 }
 #play1{
-    margin: 12% 12% 20% 12%;
     width: 40%; 
-    text-align: center;
+    margin-top: 3%;
+    margin-left: 28%;
     display: block;
 }
 
@@ -69,18 +72,55 @@ button{
     height: 40px;
     border-radius: 3%;
     background:black;
-    border: groove white;
     color: white;
     text-align: center;
 }
+.displayer{
+    text-align: center !important;
+    display: flex;
+    margin-top: 5%;
+    margin-bottom: 3%;
+    margin-left: 0%;
+    font-size: large;
+    color:rgb(36, 102, 16);
+    }
+#hum{
+    margin: auto;
+}
+#com{
+    margin-left:20%;
+    }
 #x-btn{
     display: auto;
 }
 #reload{float: right;
-    width: 30%;
+    width: 15%;
     color:white;
-    font-size: 14px;
+    font-size: 80%;
     height: 30px;
     margin: 5%;
     background: crimson;
 }
+a{
+    text-decoration: none;
+    text-align: center;
+    padding: 12%;
+    margin: 4% 0% 4% 5%;
+    color:  white;
+}
+@media (max-width:360px){
+    .background {
+        background: rgb(132, 0, 255);
+         margin: 0%;
+        padding: 5px 0px 10px 0px;
+    }
+
+#reload {
+    float: right;
+    width: 35%;
+    color: white;
+    font-size: 14px;
+    height: 30px;
+    margin: 5%;
+    background: crimson;
+}}
