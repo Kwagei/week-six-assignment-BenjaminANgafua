@@ -1,3 +1,6 @@
+
+
+// inquiring object oriently where
 const ticTacToeGame = new TicTacToeGame();
 ticTacToeGame.start();
 
@@ -6,34 +9,47 @@ function TicTacToeGame(){
     const board = new Board();
     const humanPlayer = new HumanPlayer(board);
     const computerPlayer = new ComputerPlayer(board);
+    // keep track of the turn for next player
     let turn =0;
 this.start = function(){
-    // watching changes in box
-const config = {childList: true };
-const observer = new MutationObserver(() => takeTurn());
+    // watching all the position for changes in each box
+const config = {childList: true }; /*when ever a child of the div changes I should notice*/
+const observer = new MutationObserver(() => takeTurn());/*when ever a child received value there should be atake turn for the other child*/
 board.positions.forEach((el) => observer.observe(el, config));
-takeTurn();
+takeTurn(); /*The first person need to take a turn*/
 }
+// changing player turn
 function takeTurn(){
+    /*console.log("to see changes")*/
+    /*if turn is taken check for winner*/
     if (board.checkForWinner()){
         return;
     }
-
+    /*% means remainder*/
     if(turn % 2 === 0){
         humanPlayer.takeTurn();
+        /*if not even number computer player tak turn*/
     }else{
         computerPlayer.takeTurn();
 
     }
-// nexting player turn is
+//increment i.e decide next player turn
     turn++;
 }
 }
 function Board(){
 this.positions =  Array.from(document.querySelectorAll('.col')); /*To get all the cells*/
-
+    /*checking for winner*/
     this.checkForWinner = function (){
-        let winner = false;
+        let winner = false; /*whether winner is found or not*/
+        /*figure out all combinations of cell for winning
+        what to look at:
+        0  1  2
+        3  4  5
+        6  7  8
+        
+        */
+       /*arry of arry for winning combination*/
         const winningCombinations = [
             [0, 1, 2],
             [3, 4, 5],
@@ -84,21 +100,28 @@ function getPlayer(choose){
 
     back_btn.style.display = "block";
 }
+/*human player: call the board in the constructor*/
 function HumanPlayer(board){
 this.takeTurn = function (){
-    board.positions.forEach(el => el.addEventListener('click', handleTurnTaken))
+    /*add an event listener to each of the column to listen to changes and click*/
+    board.positions.forEach(el => el.addEventListener('click', handleTurnTaken));
 }
 function handleTurnTaken(event){
+    /*display human player*/
     event.target.innerText = person;
-    board.positions
-    .forEach(el => el.removeEventListener('click', handleTurnTaken));
+    /*remove click and handle turn for the next player*/
+    board.positions.forEach(el => el.removeEventListener('click', handleTurnTaken));
 }
 }
+/*computer player: call the board in the constructor**/
 function ComputerPlayer(board){
     this.takeTurn = function (){
-        const  availablePositions = 
-        board.positions.filter((p) => p.innerText === '');
+        /*console.log() to check computer player turn*/
+        /*get available space for computer          filter each position base on if they have innertext or not*/
+        const  availablePositions = board.positions.filter((p) => p.innerText === '');
+        /*console.log("availablePositions")*/
         const move = Math.floor(Math.random()*availablePositions.length);
+     /*display computer player*/
         availablePositions[move].innerText = machine;
     }
 }
