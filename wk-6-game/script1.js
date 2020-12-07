@@ -2,8 +2,9 @@
 var turn = document.getElementById("turn"),
 // boxes => all boxes
 // X or O => to set X or O into the boxes 
-    boxes = document.querySelectorAll("#main div"), X_or_O = 0;
-var randomNum = Math.floor(Math.random()*9)+1;
+    boxes = document.querySelectorAll("#main div"), 
+    X_or_O = 0;
+var randomNum = Math.floor(Math.random()*8)+1;
 
 function selectwinnerBoxes(b1, b2, b3){
     b1 .classList.add("win");
@@ -54,13 +55,13 @@ for(var i =0; i < boxes.length; i++){
     // not allow to change the value of the box
         if(this.innerHTML !== "X" && this.innerHTML !== "O"){
         if(X_or_O%2 === 0){
-            console.log(X_or_O);
+            // console.log(X_or_O);
             this.innerHTML = "X";
             turn.innerHTML = "O Turn Now";
             getWinner();
             X_or_O += 1;
         }else{
-            console.log(X_or_O);
+            // console.log(X_or_O);
             this.innerHTML = "0";
             turn.innerHTML = "X Turn Now";
             getWinner();

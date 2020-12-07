@@ -4,48 +4,102 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>play-with-computer</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+.container{
+    width: 50%;
+    overflow: hidden;
+    margin: 5% auto auto auto; 
+}
+.container span{
+    font-family: sans-serif;
+    display: block;
+    font-size: 25px;
+    width: 76%;
+    text-align: center;
+    color: #fff;
+    background: #5e1e15;
+}
+.container .box{
+    float: left;
+    height: 80px;
+    background: rgb(128, 36, 0);
+    border: 1px solid #fff;
+    width: 25%;
+    font-family: sans-serif;
+    font-size: 40px;
+    text-align: center;
+}
+button{
+    background-color: black;
+    margin: auto 40% ;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+    </style>
 </head>
 <body> 
-    <div class="background">
-        <button type="button" id="reload" onclick="window.location.reload()"><b>Restart All</b></button>
-      <div class="container">
-                <b style="text-align: center; font-size: larger; color:white;">Welcome to Gaming With Computer </b>
-                <button type="button" id="play1" onclick="start()">Play</button>
-            <div id="thegame" style="text-align: center;" >
-                <div id="inner">
-                    <div class="displayer">
-                        <div id="hum">Player1</div> &NonBreakingSpace; &NonBreakingSpace; <div id="com">Computer</div>
-                    </div>
-                    <div class="row border-b">
-                        <div class="col border-r"></div>
-                        <div class="col border-r"></div>
-                        <div class="col border-r"></div>
-                    </div>
-                    <div class="row border-b">
-                        <div class="col border-r"></div>
-                        <div class="col border-r"></div>
-                        <div class="col border-r"></div>
-                    </div>
-                    <div class="row border-b">
-                        <div class="col border-r"></div>
-                        <div class="col border-r"></div>
-                        <div class="col border-r"></div>
-                    </div>
-                </div>
-                <br> <br>
-                <div id="x-btn" >
-
-                    <strong>Would you like "X" or "O" ?</Strong> <br> <br>
-                    <button class="btn" id="selectX" type="button" onclick="getPlayer(event)">X</button>
-                    <button class="btn" id="selectO" type="button"  onclick="getPlayer(event)">O</button> <br>
-                </div>
-                 <button id="back" type="button"> 
-                     <a href="../index1.html">Back</a>
-                    </button>
-                </div>
-        </div>
+    <div id="container" class="container">
+        <span id="turn">Play</span>
+        <div id="box1" class="box"></div>
+        <div id="box2" class="box"></div>
+        <div id="box3" class="box"></div>
+        <div id="box4" class="box"></div>
+        <div id="box5" class="box"></div>
+        <div id="box6" class="box"></div>
+        <div id="box7" class="box"></div>
+        <div id="box8" class="box"></div>
+        <div id="box9" class="box"></div>
     </div>
-    <script src="script.js"></script>
+    <button > <a href="../index1.html">Back</a> </button>
+    <script>
+    var board   = document.querySelectorAll (".box");
+
+    for( var i = 0; i < board.length; i++){
+            board[i].addEventListener("click", function(event){
+
+            if(event.target.innerHTML === ""){
+                event.target.innerHTML = "x";
+            } else{
+                alert("Already occupied")
+            }
+        });
+        
+    }
+    //  Computer player function
+    function computerPlayer(){
+        const Computer = Math.floor(Math.random()*8)+1;
+        board[i].addEventListener("click", function(event){
+        
+        });
+    }
+
+    // select player
+    function choosePlayer(){
+        
+    }
+    // winning statement
+    function selectwinnerBoxes(f1, f2, f3){
+    f1 .classList.add("win");
+    f2 .classList.add("win");
+    f3 .classList.add("win");
+    turn.innerHTML = b1.innerHTML += " Won Congratulation";
+    turn.style.fontSize = "16px";
+} 
+function getWinner(){
+}
+
+    // restart game
+    function restartGame(){
+
+    }
+
+    // play the game again
+    function playAgain(){
+
+    }
+
+    </script>
 </body>
 </html>
