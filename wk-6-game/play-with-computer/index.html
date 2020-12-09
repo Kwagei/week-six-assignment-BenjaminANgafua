@@ -146,12 +146,9 @@
                 event.target.innerHTML = person;
                 player_counter++;
                 computerPlayer();
+                tieStatementCheck();
+                getWinner();
                 
-                if(player_counter === 9){
-                    container_div.style.display = "none";
-                    getWinner();
-                    console.log(getWinner());
-                }
             } else{
                 alert("Already occupied")
             }
@@ -244,6 +241,8 @@
             }else if(board[0].innerHTML === machine && board[4].innerHTML === machine && board[8].innerHTML === mac){
                 document.getElementById("computerWin").innerHTML ="Woo! Computer Win";
                     container_div.style.display = "none";
+            }else{
+                return "noWinner";
             }
         }
     }
@@ -261,8 +260,18 @@
     var back_btn = document.getElementById("backBtn");
     var optionForPlayer = document.getElementById("optionForPlayer");
     var tie_div = document.getElementById("tieStatement");
-    // select player
 
+    // tie statement
+function tieStatementCheck(){
+    console.log("get winner", getWinner());
+    if(player_counter === 9 && getWinner()){
+    document.getElementById("tieStatement").innerHTML+= "";
+                    container_div.style.display = "none";
+                    tie_div.style.display = "block";
+                }
+            }
+    
+            // select player
     var person;
     var machine;
 
