@@ -73,11 +73,11 @@ for(var i =0; i < boxes.length; i++){
     };
 }
  // set event onclick for display
-    var div1 = document.getElementById("div1");
-    var btng = document.getElementById("btng");
+    var inner_div = document.getElementById("inner");
+    var choice_of_player = document.getElementById("choice-of-player");
     var main_div = document.getElementById("main");
-    var X = document.getElementById("x-btn");
-    var back_btn = document.getElementById("back");
+    var selectdiv = document.getElementById("btn");
+    var guide_btn    = document.getElementById("instruction-btn");
     var caution_div = document.getElementById("caution-div");
 
 function instruction(){
@@ -86,24 +86,14 @@ function instruction(){
 function hide(){
     caution_div.style.display = "none";
 }
-
-function play(){
-main_div.style.visibility = "visible";
-back_btn.style.visibility = "visible";
-div1.style.visibility = "hidden";
-}
-function back(){
-    btng.style.visibility = "visible";
-    main_div.style.visibility = "hidden";
-    div1.style.visibility = "hidden";
-    back_btn.style.visibility = "hidden";
-    
+function selectPlayer(){
+    guide_btn.style.display = "none";
+    main_div.style.display = "block";
+    selectdiv.style.display = "none";
 }
 function player(){
-    div1.style.visibility = "visible";
-    main_div.style.visibility = "hidden";
-    btng.style.visibility = "hidden";
-}
-function gameOver(b1, b2, b3){
-    getWinner.disabled = true;
+    guide_btn.style.display = "none";
+    main_div.style.display = "none";
+    inner_div.style.display = "block";
+    choice_of_player.style.display = "none";
 }

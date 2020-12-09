@@ -2,30 +2,30 @@
 *{box-sizing: border-box;
 }
 
-
-#div1{
-    visibility: hidden;
+#inner{
+    display: none;
 }
 .game{
     width: 300px;
     overflow: hidden;
     margin: 50px auto 0 auto; 
 }
-.game span{width: 100%;
+.game span{
+    width: 100%;
     font-family: sans-serif;
     display: block;
+    color: #fff;
     font-size: 25px;
     text-align: center;
-    color: #fff;
-    background: #446CB3;
+    background: #410801;
 }
 .game .box{
     float: left;
     height: 70px;
     line-height: 100px;
-    background: green;
+    background: rgb(248, 232, 3);
     cursor: pointer;
-    border: 1px solid #fff;
+    border: 1px groove rgb(2, 2, 2);
     width: 100px;
     transition: all .25s ease-in-out;
     font-family: sans-serif;
@@ -34,7 +34,6 @@
 }
 .game .box:hover{
     background: #000;
-    color: white;
 }
 .win{
     background: #F9690E !important; color: rgb(25, 80, 180) !important;
@@ -42,21 +41,14 @@
 
 .firstDiv {
     display: block;
-    background: darkgreen;
     text-align: center;
     margin: 5% 20% 2% 20%;
-    color: #fff;
     padding: 10px 0px 0px 0px;
 }
-#back{
-    visibility: hidden;
-}
+
 #caution-div{
     display:none;
 } 
-.btng{
-    display: flex;
-}
 .btn{
     width: 60px;
     font-size: 16px;
@@ -83,11 +75,7 @@
     color: black;
     visibility: hidden;
 }
-.container{
-    background: yellow;
-    margin:  auto 20%;
-    padding: 5px 0px 10px 0px;
-}
+
 @media (max-width:360px){
     html {
         display: block;
@@ -113,7 +101,6 @@
         line-height: 100px;
         background: green;
         cursor: pointer;
-        border: 1px solid #fff;
         width: 80px;
         transition: all .25s ease-in-out;
         font-family: sans-serif;
@@ -133,11 +120,6 @@
 
     div {
         display: block;
-    }
-    .container {
-        background: yellow;
-         margin: 0%;
-        padding: 10px 0px 10px 0px;
     }
 }
 

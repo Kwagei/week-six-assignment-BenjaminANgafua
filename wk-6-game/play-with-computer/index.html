@@ -5,43 +5,116 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>play-with-computer</title>
     <style>
-.container{
-    width: 50%;
-    overflow: hidden;
-    margin: 5% auto auto auto; 
-}
-.container span{
-    font-family: sans-serif;
-    display: block;
-    font-size: 25px;
-    width: 76%;
-    text-align: center;
-    color: #fff;
-    background: #5e1e15;
-}
-.container .box{
-    float: left;
-    height: 80px;
-    background: rgb(128, 36, 0);
-    border: 1px solid #fff;
-    width: 25%;
-    font-family: sans-serif;
-    font-size: 40px;
-    text-align: center;
-}
-button{
-    background-color: black;
-    margin: auto 40% ;
-}
-a{
-    text-decoration: none;
-    color: white;
-}
+        body{
+            background-color: rgb(41, 3, 43);
+        }
+        #selecting-btn{
+            display: block;
+            text-align: center;
+        }
+        #selectX{
+            background-color: black;
+            color: white;
+            font-size: 20px;
+            padding: 0px 20px 0px 20px;
+            height: 40px;
+        }
+        #selectO{
+            height: 40px;
+            background-color: black;
+            color: white;
+            font-size: 20px;
+            padding: 0px 20px 0px 20px;
+        }
+        .container{
+            display: none;
+            width: 50%;
+            font-weight: bold;
+            font-size: larger;
+            overflow: hidden;
+            margin: 5% auto auto auto; 
+        }
+        
+        .container .box{
+            float: left;
+            height: 100px;
+            background: rgb(238, 137, 42);
+            border: 1px solid #fff;
+            width: 25%;
+            font-family: sans-serif;
+            font-size: 40px;
+            padding:21px 0px 0px 20px ;
+        }
+        #backBtn{
+            display: none;
+            background-color: black;
+            margin: 2% 40%;
+            width: 100px;
+            color: white;
+            height: 40px;
+        }
+        #optionForPlayer{
+            font-size: 23px;
+            margin-top: 25%;
+            color: white;
+            text-align: center;
+        }
+        #playagainbtn{
+            display: none;
+            background-color: black;
+            margin: 5% 40%;
+            height: 40px;
+            width: 10%;
+            color: white;
+        }
+        a{
+            text-decoration: none;
+            color: white;
+        }
+        #tieStatement{
+            display: none;
+            border:groove rgb(249, 250, 248);
+            background-color: rgb(3, 3, 61);
+            color: #f82109;
+            font-size: 40px;
+            font-weight: bold;
+            margin: 10% 20% 10% 20%;
+            padding: 50px 20px 20px 20px;
+            height: 150px;
+            text-align: center !important; 
+        }
+        @media (max-width: 360px){
+            .container{ 
+                width: auto; 
+                font-weight: bold;
+                font-size: larger;
+                overflow: hidden;
+                margin-left: 35px;
+            }
+            #playagainbtn{
+            display: none;
+            background-color: black;
+            margin: 5% 40%;
+            height: 40px;
+            font-weight: bolder;
+            width: 30%;
+            color: white;
+        }
+        .container span{
+            font-family: sans-serif;
+            display: block;
+            font-size: 25px;
+            width: 96%;
+            text-align: center;
+            color: #fff;
+            background: #4b1711;
+        }
+    }
     </style>
 </head>
 <body> 
+    <button id="playagainbtn" onclick="window.location.reload()">Play Again</button>
     <div id="container" class="container">
-        <span id="turn">Play</span>
         <div id="box1" class="box"></div>
         <div id="box2" class="box"></div>
         <div id="box3" class="box"></div>
@@ -52,54 +125,162 @@ a{
         <div id="box8" class="box"></div>
         <div id="box9" class="box"></div>
     </div>
-    <button > <a href="../index1.html">Back</a> </button>
+    <div id="optionForPlayer">Which one of these letters you want to play with "X" or "O?</div>
+    <div id="selecting-btn" ><br> <br>
+        <button  id="selectX" type="button" onclick="getPlayer(event)">X</button>
+        <button  id="selectO" type="button"  onclick="getPlayer(event)">O</button>
+    </div>
+    <div id="tieStatement">Game Draw</div>
+    <div id="computerWin" style="color:white; font-size:20px; margin: auto 38%;"></div>
+    <div id="you_win" style="color:white; font-size:20px; margin: auto 38%;"></div>
+        <button id="backBtn" > <a href="../index1.html">Back</a> </button>
     <script>
+
+
+    var player_counter =0;
     var board   = document.querySelectorAll (".box");
-
-    for( var i = 0; i < board.length; i++){
+        // Human player
+    function humanplayer(){for( var i = 0; i < board.length; i++){
             board[i].addEventListener("click", function(event){
-
             if(event.target.innerHTML === ""){
-                event.target.innerHTML = "x";
+                event.target.innerHTML = person;
+                player_counter++;
+                computerPlayer();
+                
+                if(player_counter === 9){
+                    container_div.style.display = "none";
+                    getWinner();
+                    console.log(getWinner());
+                }
             } else{
                 alert("Already occupied")
             }
         });
         
     }
+    }
+    humanplayer();
     //  Computer player function
     function computerPlayer(){
-        const Computer = Math.floor(Math.random()*8)+1;
-        board[i].addEventListener("click", function(event){
-        
-        });
-    }
+        const computer = Math.floor(Math.random()*8)+1;
+        // console.log(computer);
+        if(document.getElementById("box" + computer).innerHTML === ""){
+        document.getElementById("box" + computer).innerHTML = machine;
 
-    // select player
-    function choosePlayer(){
-        
+        getWinner();
+        player_counter++;
+        // console.log(player_counter);
+        } else{
+            if(player_counter < board.length){
+            computerPlayer();
+            }
+        }
     }
+    
     // winning statement
-    function selectwinnerBoxes(f1, f2, f3){
-    f1 .classList.add("win");
-    f2 .classList.add("win");
-    f3 .classList.add("win");
-    turn.innerHTML = b1.innerHTML += " Won Congratulation";
-    turn.style.fontSize = "16px";
-} 
-function getWinner(){
-}
+    function getWinner(){
+        for( var i = 0; i < board.length; i++){
 
+            if(board[0].innerHTML === person && board[1].innerHTML === person && board[2].innerHTML === person){
+                document.getElementById("you_win").innerHTML ="Congratulation you Win";
+                    container_div.style.display = "none";
+            }else if
+                (board[0].innerHTML === machine && board[1].innerHTML === machine && board[2].innerHTML === machine){
+                document.getElementById("computerWin").innerHTML ="Woo! Computer Win";
+                    container_div.style.display = "none";
+            }
+
+            else if(board[3].innerHTML === person && board[4].innerHTML === person && board[5].innerHTML === person){
+                document.getElementById("you_win").innerHTML ="Congratulation you Win";
+                    container_div.style.display = "none";
+                } else if (board[3].innerHTML === machine && board[4].innerHTML === machine && board[5].innerHTML === machine){
+                    document.getElementById("computerWin").innerHTML ="Woo! Computer Win";
+                    container_div.style.display = "none";
+            }
+            
+            else if(board[6].innerHTML === person && board[7].innerHTML === person && board[8].innerHTML === person){
+                document.getElementById("you_win").innerHTML ="Congratulation you Win";
+                    container_div.style.display = "none";
+            }else if(board[6].innerHTML === machine && board[7].innerHTML === machine && board[8].innerHTML === machine){
+                document.getElementById("computerWin").innerHTML ="Woo! Computer Win";
+                    container_div.style.display = "none";
+            }
+            
+            else if(board[0].innerHTML === person && board[3].innerHTML === person && board[6].innerHTML === person){
+                document.getElementById("you_win").innerHTML ="Congratulation you Win";
+                    container_div.style.display = "none";
+            }else if(board[0].innerHTML === machine && board[3].innerHTML === machine && board[6].innerHTML === machine){
+                document.getElementById("computerWin").innerHTML ="Woo! Computer Win";
+                container_div.style.display = "none";
+            }
+            
+            else if(board[1].innerHTML === person && board[4].innerHTML === person && board[7].innerHTML === person){
+                document.getElementById("you_win").innerHTML ="Congratulation you Win";
+                    container_div.style.display = "none";
+            }else if(board[1].innerHTML === machine && board[4].innerHTML === machine && board[7].innerHTML === machine){
+                document.getElementById("computerWin").innerHTML ="Woo! Computer Win";
+                    container_div.style.display = "none";
+            }
+            
+            else if(board[2].innerHTML === person && board[5].innerHTML === person && board[8].innerHTML === person){
+                document.getElementById("you_win").innerHTML ="Congratulation you Win";
+                    container_div.style.display = "none";
+            }else if(board[2].innerHTML === machine && board[5].innerHTML === machine && board[8].innerHTML === machine){
+                document.getElementById("computerWin").innerHTML ="Woo! Computer Win";
+                    container_div.style.display = "none";
+            }
+            
+            else if(board[2].innerHTML === person && board[4].innerHTML === person && board[6].innerHTML === person){
+                document.getElementById("you_win").innerHTML ="Congratulation you Win";
+                    container_div.style.display = "none";
+            }else if(board[2].innerHTML === machine && board[4].innerHTML === machine && board[6].innerHTML === machine){
+                document.getElementById("computerWin").innerHTML ="Woo! Computer Win";
+                    container_div.style.display = "none";
+            }
+            
+            else if(board[0].innerHTML === person && board[4].innerHTML === person && board[8].innerHTML === person){
+                document.getElementById("you_win").innerHTML ="Congratulation you Win";
+                    container_div.style.display = "none";
+            }else if(board[0].innerHTML === machine && board[4].innerHTML === machine && board[8].innerHTML === mac){
+                document.getElementById("computerWin").innerHTML ="Woo! Computer Win";
+                    container_div.style.display = "none";
+            }
+        }
+    }
     // restart game
     function restartGame(){
 
     }
-
     // play the game again
-    function playAgain(){
+    function GameOverPlayAgain(){
 
     }
+    var container_div = document.getElementById("container");
+    var play_againbtn = document.getElementById("playagainbtn");
+    var selecting_btn = document.getElementById("selecting-btn");
+    var back_btn = document.getElementById("backBtn");
+    var optionForPlayer = document.getElementById("optionForPlayer");
+    var tie_div = document.getElementById("tieStatement");
+    // select player
 
+    var person;
+    var machine;
+
+    function getPlayer(choose){
+    person = document.getElementById(choose.target.id).innerHTML;
+    if(person === "X"){
+        machine = "O";
+    }else{
+        machine = "X";
+    }
+
+    container_div.style.display = "block";
+    play_againbtn.style.display = "block";
+    back_btn.style.display = "block";
+    tie_div.style.display = "none";
+    selecting_btn.style.display = "none";
+    optionForPlayer.style.display = "none";
+}
     </script>
 </body>
 </html>
