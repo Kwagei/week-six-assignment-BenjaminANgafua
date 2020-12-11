@@ -45,7 +45,7 @@
             font-weight: bold;
             font-size: larger;
             overflow: hidden;
-            margin: 2% auto auto auto;
+            margin: 1% auto auto auto;
         }
         
         .container .box {
@@ -78,9 +78,10 @@
         #playagainbtn {
             display: none;
             background-color: black;
-            margin: 5% 40%;
+            margin: 1% 40%;
+            margin-top: 3%;
             height: 40px;
-            width: 10%;
+            text-align: center;
             color: white;
         }
         
@@ -233,12 +234,10 @@
             if (number_ofPlayer < 2) {
                 computerPlayer();
             } else {
-
                 if (box.innerHTML === "") {
-
-                    player_counter++;
                     getWinner();
                     tieStatementCheck();
+                    player_counter++;
 
                 } else {
                     box.innerHTML = person;
@@ -373,7 +372,6 @@
         }
 
         function guide() {
-
             hide_caution.style.display = "block";
         }
 
