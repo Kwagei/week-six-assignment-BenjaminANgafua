@@ -1,5 +1,6 @@
 body {
     background-color: rgb(2, 7, 32);
+    height: 100vh;
 }
 
 button {
@@ -41,9 +42,8 @@ button {
 
 .container {
     display: none;
-    width: 30%;
+    width: 50%;
     padding: 0%;
-    border: groove rgb(253, 252, 252);
     border-width: 23px;
     font-size: larger;
     overflow: hidden;
@@ -51,8 +51,8 @@ button {
 }
 
 .container .box {
-    width: 27.5%;
-    height: 3em;
+    width: 25%;
+    height: 100px;
     float: left;
     background: rgb(248, 39, 2);
     border: 1px solid #fff;
@@ -63,9 +63,9 @@ button {
 }
 
 #keepingScore {
-    border: groove rgb(247, 248, 246);
     width: 31%;
-    margin-left: 33%;
+    margin-left: 25%;
+    position: static;
     border-width: 10px;
     color: white;
     align-items: center;
@@ -146,12 +146,12 @@ button {
     font-size: 20px;
 }
 
-@media (max-width: 360px) {
+@media (max-width: 560px) {
     .container .box {
         float: left;
         height: 100px;
         background: rgb(248, 39, 2);
-        border: 1px solid #fff;
+        border: 1px solid rgba(179, 177, 177, 0.945);
         width: 25.8%;
         font-family: 'Times New Roman', Times, serif;
         font-size: 40px;
@@ -161,14 +161,14 @@ button {
     .container {
         display: none;
         width: 86%;
-        border: groove rgb(253, 252, 252);
+        border: groove rgb(145, 143, 143);
         border-width: 20px;
         font-size: larger;
         overflow: hidden;
         margin: 1% auto auto auto;
     }
     #keepingScore {
-        border: groove rgb(247, 248, 246);
+        border: groove rgb(139, 140, 145);
         width: 87%;
         margin-left: 0%;
         border-width: 10px;

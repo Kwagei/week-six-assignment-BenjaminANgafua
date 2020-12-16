@@ -1,5 +1,5 @@
 var number_ofPlayer = 1;
-var player2 = "O";
+
 var player_counter = 0;
 var person;
 var machine;
@@ -22,11 +22,10 @@ var board = document.querySelectorAll(".box");
 var hide_caution = document.getElementById("caution-div");
 var display_guide = document.getElementById("guide");
 var keepingScore = document.getElementById("keepingScore");
-
 // Human player
 function humanplayer(e) {
 
-    if (number_ofPlayer < 2) {
+    if (number_ofPlayer < 2 && getWinner()) {
         if (e.target.innerHTML === "") {
             player_counter++;
             e.target.innerHTML = person;
@@ -49,7 +48,6 @@ function humanplayer(e) {
             tieStatementCheck();
         }
     }
-
 }
 
 //  Computer player function
@@ -59,7 +57,6 @@ function computerPlayer() {
         document.getElementById("box" + computer).innerHTML = machine;
         getWinner();
         player_counter++;
-        console.log("count", player_counter);
     } else {
         if (player_counter < board.length) {
             // requesive function
@@ -67,7 +64,6 @@ function computerPlayer() {
         }
     }
 }
-
 // winning statement
 function getWinner() {
     if (board[0].innerHTML === person && board[1].innerHTML === person && board[2].innerHTML === person) {
@@ -160,18 +156,13 @@ function getWinner() {
         return "noWinner";
     }
 }
-
-// restart game
-function restartGame() {
-
-}
 // play the game again
 function playAgain() {
     for (let i = 0; i < board.length; i++) {
         board[i].innerHTML = "";
     }
-
     container_div.style.display = "block";
+
 }
 
 // tie statement
@@ -182,7 +173,6 @@ function tieStatementCheck() {
         tie_div.style.display = "block";
     }
 }
-
 tieStatementCheck();
 // Player selection
 function twoPlay() {
@@ -196,8 +186,8 @@ function onePlay() {
     selecting_btn.style.display = "block";
     number_ofPlayer = 1;
 }
-// select player
 
+// select player
 function getPlayer(choose) {
     person = document.getElementById(choose.target.id).innerHTML;
     if (person === "X") {
@@ -213,7 +203,7 @@ function getPlayer(choose) {
     optionForPlayer.style.display = "none";
     keepingScore.style.display = "inline-flex";
 }
-
+// instruction
 function guide() {
     hide_caution.style.display = "block";
 }
@@ -221,3 +211,8 @@ function guide() {
 function hide1() {
     hide_caution.style.display = "none";
 }
+/*function newGame(){
+    if(human_score === 5 || computer_score === 5){
+        box.innerHTML.disabled = ture;
+    }
+}*/
