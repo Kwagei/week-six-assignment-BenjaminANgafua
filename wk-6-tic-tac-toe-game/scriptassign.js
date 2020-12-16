@@ -30,6 +30,7 @@ function humanplayer(e) {
         if (e.target.innerHTML === "") {
             player_counter++;
             e.target.innerHTML = person;
+            getWinner();
             computerPlayer();
             tieStatementCheck();
         }
@@ -74,8 +75,12 @@ function getWinner() {
 
 
     } else if (board[0].innerHTML === machine && board[1].innerHTML === machine && board[2].innerHTML === machine) {
+        console.log("gtggggggg")
+
         document.getElementById("computerWin").innerHTML = "Woo! Computer Win";
         container_div.style.display = "none";
+        console.log("gtggggggg")
+
         computer_score++;
         computer_call.innerHTML = computer_score;
 
@@ -86,6 +91,8 @@ function getWinner() {
         winner_checker = true;
 
     } else if (board[3].innerHTML === machine && board[4].innerHTML === machine && board[5].innerHTML === machine) {
+        console.log("gtggggggg")
+
         document.getElementById("computerWin").innerHTML = "Woo! Computer Win";
         container_div.style.display = "none";
         computer_score++;
@@ -98,6 +105,7 @@ function getWinner() {
         winner_checker = true;
 
     } else if (board[6].innerHTML === machine && board[7].innerHTML === machine && board[8].innerHTML === machine) {
+        console.log("gtggggggg");
         document.getElementById("computerWin").innerHTML = "Woo! Computer Win";
         container_div.style.display = "none";
         computer_score++;
@@ -112,6 +120,7 @@ function getWinner() {
     } else if (board[0].innerHTML === machine && board[3].innerHTML === machine && board[6].innerHTML === machine) {
         document.getElementById("computerWin").innerHTML = "Woo! Computer Win";
         container_div.style.display = "none";
+        console.log("gtggggggg");
         computer_score++;
         computer_call.innerHTML = computer_score;
 
@@ -123,6 +132,7 @@ function getWinner() {
 
     } else if (board[1].innerHTML === machine && board[4].innerHTML === machine && board[7].innerHTML === machine) {
         document.getElementById("computerWin").innerHTML = "Woo! Computer Win";
+        console.log("gtggggggg");
         container_div.style.display = "none";
         computer_score++;
         computer_call.innerHTML = computer_score;
@@ -136,6 +146,7 @@ function getWinner() {
     } else if (board[2].innerHTML === machine && board[5].innerHTML === machine && board[8].innerHTML === machine) {
         document.getElementById("computerWin").innerHTML = "Woo! Computer Win";
         container_div.style.display = "none";
+        console.log("gtggggggg");
         computer_score++;
         computer_call.innerHTML = computer_score;
 
@@ -147,6 +158,7 @@ function getWinner() {
 
     } else if (board[2].innerHTML === machine && board[4].innerHTML === machine && board[6].innerHTML === machine) {
         document.getElementById("computerWin").innerHTML = "Woo! Computer Win";
+        console.log("gtggggggg");
         container_div.style.display = "none";
         computer_score++;
         computer_call.innerHTML = computer_score;
@@ -159,6 +171,7 @@ function getWinner() {
 
     } else if (board[0].innerHTML === machine && board[4].innerHTML === machine && board[8].innerHTML === machine) {
         document.getElementById("computerWin").innerHTML = "Woo! Computer Win";
+        console.log("gtggggggg");
         container_div.style.display = "none";
         computer_score++;
         computer_call.innerHTML = computer_score;
@@ -171,12 +184,15 @@ function getWinner() {
             }
         }
         if (tie === 9) {
-            alert("Tie");
+            tie_div.style.display = "block";
         }
+        tieStatementCheck();
     }
 }
 // play the game again
 function playAgain() {
+    winner_checker = false;
+    console.log("what", number_ofPlayer);
     for (let i = 0; i < board.length; i++) {
         board[i].innerHTML = "";
     }
@@ -190,7 +206,6 @@ function tieStatementCheck() {
     if (player_counter === 9) {
         document.getElementById("tieStatement").innerHTML += "";
         container_div.style.display = "none";
-        tie_div.style.display = "block";
     }
 }
 tieStatementCheck();
