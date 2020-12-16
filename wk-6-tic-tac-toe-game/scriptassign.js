@@ -147,7 +147,7 @@ function getWinner() {
         human_score++;
         human_call.innerHTML = human_score;
         container_div.style.display = "none";
-    } else if (board[0].innerHTML === machine && board[4].innerHTML === machine && board[8].innerHTML === mac) {
+    } else if (board[0].innerHTML === machine && board[4].innerHTML === machine && board[8].innerHTML === machine) {
         document.getElementById("computerWin").innerHTML = "Woo! Computer Win";
         container_div.style.display = "none";
         computer_score++;
@@ -162,7 +162,8 @@ function playAgain() {
         board[i].innerHTML = "";
     }
     container_div.style.display = "block";
-
+    document.getElementById("tieStatement").style.display = "none";
+    document.getElementById("you_win").style.display = "none";
 }
 
 // tie statement
