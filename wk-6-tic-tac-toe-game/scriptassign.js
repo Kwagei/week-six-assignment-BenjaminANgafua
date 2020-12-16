@@ -6,6 +6,7 @@ var machine;
 
 var human_score = 0;
 var computer_score = 0;
+var winner_checker = false;
 
 var human_call = document.getElementById("human");
 var computer_call = document.getElementById("computer");
@@ -24,13 +25,12 @@ var display_guide = document.getElementById("guide");
 var keepingScore = document.getElementById("keepingScore");
 // Human player
 function humanplayer(e) {
-
-    if (number_ofPlayer < 2 && getWinner()) {
+    getWinner();
+    if (number_ofPlayer < 2 && winner_checker === false) {
         if (e.target.innerHTML === "") {
             player_counter++;
             e.target.innerHTML = person;
             computerPlayer();
-            getWinner();
             tieStatementCheck();
         }
     } else {
@@ -44,7 +44,6 @@ function humanplayer(e) {
             } else {
                 person = "X";
             }
-            getWinner();
             tieStatementCheck();
         }
     }
@@ -66,10 +65,14 @@ function computerPlayer() {
 }
 // winning statement
 function getWinner() {
+
     if (board[0].innerHTML === person && board[1].innerHTML === person && board[2].innerHTML === person) {
         document.getElementById("you_win").innerHTML = "Congratulation you Win";
         human_score++;
         human_call.innerHTML = human_score;
+        winner_checker = true;
+
+
     } else if (board[0].innerHTML === machine && board[1].innerHTML === machine && board[2].innerHTML === machine) {
         document.getElementById("computerWin").innerHTML = "Woo! Computer Win";
         container_div.style.display = "none";
@@ -80,7 +83,8 @@ function getWinner() {
         document.getElementById("you_win").innerHTML = "Congratulation you Win";
         human_score++;
         human_call.innerHTML = human_score;
-        container_div.style.display = "none";
+        winner_checker = true;
+
     } else if (board[3].innerHTML === machine && board[4].innerHTML === machine && board[5].innerHTML === machine) {
         document.getElementById("computerWin").innerHTML = "Woo! Computer Win";
         container_div.style.display = "none";
@@ -91,7 +95,8 @@ function getWinner() {
         document.getElementById("you_win").innerHTML = "Congratulation you Win";
         human_score++;
         human_call.innerHTML = human_score;
-        container_div.style.display = "none";
+        winner_checker = true;
+
     } else if (board[6].innerHTML === machine && board[7].innerHTML === machine && board[8].innerHTML === machine) {
         document.getElementById("computerWin").innerHTML = "Woo! Computer Win";
         container_div.style.display = "none";
@@ -102,7 +107,8 @@ function getWinner() {
         document.getElementById("you_win").innerHTML = "Congratulation you Win";
         human_score++;
         human_call.innerHTML = human_score;
-        container_div.style.display = "none";
+        winner_checker = true;
+
     } else if (board[0].innerHTML === machine && board[3].innerHTML === machine && board[6].innerHTML === machine) {
         document.getElementById("computerWin").innerHTML = "Woo! Computer Win";
         container_div.style.display = "none";
@@ -113,7 +119,8 @@ function getWinner() {
         document.getElementById("you_win").innerHTML = "Congratulation you Win";
         human_score++;
         human_call.innerHTML = human_score;
-        container_div.style.display = "none";
+        winner_checker = true;
+
     } else if (board[1].innerHTML === machine && board[4].innerHTML === machine && board[7].innerHTML === machine) {
         document.getElementById("computerWin").innerHTML = "Woo! Computer Win";
         container_div.style.display = "none";
@@ -124,7 +131,8 @@ function getWinner() {
         document.getElementById("you_win").innerHTML = "Congratulation you Win";
         human_score++;
         human_call.innerHTML = human_score;
-        container_div.style.display = "none";
+        winner_checker = true;
+
     } else if (board[2].innerHTML === machine && board[5].innerHTML === machine && board[8].innerHTML === machine) {
         document.getElementById("computerWin").innerHTML = "Woo! Computer Win";
         container_div.style.display = "none";
@@ -135,7 +143,8 @@ function getWinner() {
         document.getElementById("you_win").innerHTML = "Congratulation you Win";
         human_score++;
         human_call.innerHTML = human_score;
-        container_div.style.display = "none";
+        winner_checker = true;
+
     } else if (board[2].innerHTML === machine && board[4].innerHTML === machine && board[6].innerHTML === machine) {
         document.getElementById("computerWin").innerHTML = "Woo! Computer Win";
         container_div.style.display = "none";
@@ -146,14 +155,24 @@ function getWinner() {
         document.getElementById("you_win").innerHTML = "Congratulation you Win";
         human_score++;
         human_call.innerHTML = human_score;
-        container_div.style.display = "none";
+        winner_checker = true;
+
     } else if (board[0].innerHTML === machine && board[4].innerHTML === machine && board[8].innerHTML === machine) {
         document.getElementById("computerWin").innerHTML = "Woo! Computer Win";
         container_div.style.display = "none";
         computer_score++;
         computer_call.innerHTML = computer_score;
     } else {
-        return "noWinner";
+        let tie = 0;
+        if (tie < board.length) {
+            for (let i = 0; i < board.length; i++) {
+                if (board[i].innerHTML != "")
+                    tie += 1;
+            }
+        }
+        if (tie === 9) {
+            alert("Tie");
+        }
     }
 }
 // play the game again
