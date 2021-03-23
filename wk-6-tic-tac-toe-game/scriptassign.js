@@ -8,7 +8,7 @@ var player_counter = 0;
 var person;
 var machine;
 
-// Player2 identification option "X" or "O"
+// Two Players identification option "X" or "O"
 var player1;
 var player2;
 
@@ -23,7 +23,6 @@ var winner_checker = false;
 var human_call = document.getElementById("human");
 var computer_call = document.getElementById("computer");
 var container_div = document.getElementById("container");
-var play_againbtn = document.getElementById("playagainbtn");
 var selecting_btn = document.getElementById("selecting-btn");
 var back_btn = document.getElementById("backBtn");
 var optionForPlayer = document.getElementById("optionForPlayer");
@@ -35,7 +34,22 @@ var board = document.querySelectorAll(".box");
 var hide_caution = document.getElementById("caution-div");
 var display_guide = document.getElementById("guide");
 var keepingScore = document.getElementById("keepingScore");
-// select player
+
+// Player selection
+
+function onePlayer() {
+    who_to_play.style.display = "none";
+    selecting_btn.style.display = "block";
+    number_ofPlayer = 1;
+}
+
+function twoPlayer() {
+    who_to_play.style.display = "none";
+    selecting_btn.style.display = "block";
+    number_ofPlayer = 2;
+}
+
+// select player identity
 function getPlayer(choose) {
     person = document.getElementById(choose.target.id).innerHTML;
     if (person === "X") {
@@ -44,13 +58,13 @@ function getPlayer(choose) {
         machine = "X";
     }
     container_div.style.display = "block";
-    play_againbtn.style.display = "block";
     back_btn.style.display = "block";
     tie_div.style.display = "none";
     selecting_btn.style.display = "none";
     optionForPlayer.style.display = "none";
     keepingScore.style.display = "inline-flex";
 }
+
 
 // winning statement
 function getWinner() {
@@ -64,7 +78,7 @@ function getWinner() {
 
     } else if (board[0].innerHTML === machine && board[1].innerHTML === machine && board[2].innerHTML === machine) {
         document.getElementById("computerWin").innerHTML = "Woo! Computer Win";
-        container_div.style.display = "none";
+        // container_div.style.display = "none";
         computer_score++;
         computer_call.innerHTML = computer_score;
 
@@ -76,7 +90,7 @@ function getWinner() {
 
     } else if (board[3].innerHTML === machine && board[4].innerHTML === machine && board[5].innerHTML === machine) {
         document.getElementById("computerWin").innerHTML = "Woo! Computer Win";
-        container_div.style.display = "none";
+        // container_div.style.display = "none";
         computer_score++;
         computer_call.innerHTML = computer_score;
 
@@ -89,7 +103,7 @@ function getWinner() {
 
     } else if (board[6].innerHTML === machine && board[7].innerHTML === machine && board[8].innerHTML === machine) {
         document.getElementById("computerWin").innerHTML = "Woo! Computer Win";
-        container_div.style.display = "none";
+        // container_div.style.display = "none";
         computer_score++;
         computer_call.innerHTML = computer_score;
 
@@ -101,7 +115,7 @@ function getWinner() {
 
     } else if (board[0].innerHTML === machine && board[3].innerHTML === machine && board[6].innerHTML === machine) {
         document.getElementById("computerWin").innerHTML = "Woo! Computer Win";
-        container_div.style.display = "none";
+        // container_div.style.display = "none";
         computer_score++;
         computer_call.innerHTML = computer_score;
 
@@ -113,7 +127,7 @@ function getWinner() {
 
     } else if (board[1].innerHTML === machine && board[4].innerHTML === machine && board[7].innerHTML === machine) {
         document.getElementById("computerWin").innerHTML = "Woo! Computer Win";
-        container_div.style.display = "none";
+        // container_div.style.display = "none";
         computer_score++;
         computer_call.innerHTML = computer_score;
 
@@ -125,7 +139,7 @@ function getWinner() {
 
     } else if (board[2].innerHTML === machine && board[5].innerHTML === machine && board[8].innerHTML === machine) {
         document.getElementById("computerWin").innerHTML = "Woo! Computer Win";
-        container_div.style.display = "none";
+        // container_div.style.display = "none";
         computer_score++;
         computer_call.innerHTML = computer_score;
 
@@ -137,7 +151,7 @@ function getWinner() {
 
     } else if (board[2].innerHTML === machine && board[4].innerHTML === machine && board[6].innerHTML === machine) {
         document.getElementById("computerWin").innerHTML = "Woo! Computer Win";
-        container_div.style.display = "none";
+        // container_div.style.display = "none";
         computer_score++;
         computer_call.innerHTML = computer_score;
 
@@ -149,7 +163,7 @@ function getWinner() {
 
     } else if (board[0].innerHTML === machine && board[4].innerHTML === machine && board[8].innerHTML === machine) {
         document.getElementById("computerWin").innerHTML = "Woo! Computer Win";
-        container_div.style.display = "none";
+        // container_div.style.display = "none";
         computer_score++;
         computer_call.innerHTML = computer_score;
     } else {
@@ -166,16 +180,8 @@ function getWinner() {
         }
 
     }
-}
-// play the game again
-function playAgain() {
-    winner_checker = false;
-    for (let i = 0; i < board.length; i++) {
-        board[i].innerHTML = "";
-    }
-    container_div.style.display = "block";
-    document.getElementById("you_win").style.display = "none";
-    tie_div.style.display = "none";
+
+    newGame();
 }
 // Human player
 function humanplayer(e) {
@@ -192,7 +198,6 @@ function humanplayer(e) {
         // Two player condition without computer involvement
     } else {
         var box = document.getElementById(e.target.id).innerHTML = person;
-
         if (box.innerHTML === "") {
             player_counter++;
         } else {
@@ -221,20 +226,6 @@ function computerPlayer() {
         }
     }
 }
-// Player selection
-function twoPlay() {
-    who_to_play.style.display = "none";
-    selecting_btn.style.display = "block";
-    number_ofPlayer = 2;
-}
-
-function onePlay() {
-    who_to_play.style.display = "none";
-    selecting_btn.style.display = "block";
-    number_ofPlayer = 1;
-}
-
-
 // instruction
 function guide() {
     hide_caution.style.display = "block";
@@ -244,10 +235,18 @@ function hide1() {
     hide_caution.style.display = "none";
 }
 
+// new game
 function newGame() {
     if (human_score.innerHTML === 5 || computer_score === 5) {
         container_div.style.display = "none";
         return;
     }
 }
-newGame()
+// play the game again
+
+function playAgain() {
+    board.innerHTML = "";
+    container_div.style.display = "block";
+    document.getElementById("you_win").style.display = "none";
+    tie_div.style.display = "none";
+}

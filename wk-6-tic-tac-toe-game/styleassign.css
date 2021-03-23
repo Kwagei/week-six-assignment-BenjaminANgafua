@@ -95,7 +95,7 @@ button {
 }
 
 #playagainbtn {
-    display: none;
+    /* display: none; */
     cursor: pointer;
     background-color: black;
     height: 40px;
