@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-tac-toe-game</title>
+    <link rel="stylesheet" href="styleassign.css">
+</head>
+
+<body>
+
+    <div id="guide" onclick="guide()">Guide:
+    </div><br>
+    <div id="caution-div">
+        <ol>
+            <strong>Instruction:</strong> <br> <br>
+            <li>choose how you want to play.</li>
+            <li>Click either "X" or "O" as your favorite player to start the match.</li>
+            <li>You are to paly in the empty spaces provided in the 3 square boxes.</li>
+            <li>You are to fill in a row or a columns or either of the two diagonals with your player in sequence <br> to declare you as winner.</li>
+            <li>If won, you may restart the game by clicking at the button at the top right corner.</li> <br>
+            <button type="button" style="cursor: pointer; margin-left: 5%;" onclick="hide1()">Hide</button>
+        </ol>
+    </div>
+    <div id="whoToPlay">
+        <h1 style="color: #fff;">Welcome to this Tic-tac-toe Game! </h1><br> <br>
+        <b style="font-size:30px; font-family: 'Times New Roman', Times, serif; color: #f8a409;">How do you want to play?</b> <br>
+        <button type="button" id="play1-btn" onclick="onePlayer(event)">One Player</button>
+        <button type="button" id="play2-btn" onclick="twoPlayer(event)">Two Player</button>
+    </div>
+
+    <div id="selecting-btn">
+        <div id="optionForPlayer">Which one of these letters you want to play with "X" or "O?</div>
+        <br> <br>
+        <button id="selectX" type="button" onclick="getPlayer(event)">X</button>
+        <button id="selectO" type="button" onclick="getPlayer(event)">O</button>
+    </div>
+    <div>
+        <div id="keepingScore">
+
+            <div style="margin-left:10%">Human:
+                <span id="human">0</span>
+            </div>
+
+            <div>Computer:
+                <span id="computer">0</span>
+            </div>
+
+        </div>
+        <div id="container" class="container">
+        </div>
+    </div>
+
+    <div id="tieStatement">Game Draw</div>
+    <div id="computerWin" style="color:white; font-size:20px; margin: auto 38%;"></div>
+    <div id="you_win" style="color:white; font-size:20px; margin: auto 38%;"></div>
+    <div id="reset-div">
+        <button id="backBtn" onclick="window.location.reload()">Restart</button>
+        <button id="playAgainBtn">Play Again</button>
+    </div>
+
+    <script src="scriptassign.js">
+    </script>
+</body>
+
+</html>
